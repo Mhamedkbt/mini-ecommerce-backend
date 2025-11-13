@@ -1,0 +1,27 @@
+###
+GET localhost:8080/orders
+
+###
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+  "id": 1,
+  "user": {
+    "id": 1,
+    "name": "Mhamed",
+    "products": []
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "price": 1200.0
+    }
+  ]
+}
+
+
+
+###
+DELETE https://localhost:8080/orders/1

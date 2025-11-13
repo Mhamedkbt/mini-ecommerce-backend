@@ -1,0 +1,17 @@
+###
+GET http://localhost:8080/users
+
+###
+POST https://localhost:8080/users
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Mhamed",
+  "products": []
+}
+
+
+
+###
+DELETE https://localhost:8080/users/1
