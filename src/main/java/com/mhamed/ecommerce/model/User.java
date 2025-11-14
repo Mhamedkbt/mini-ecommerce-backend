@@ -1,17 +1,21 @@
 package com.mhamed.ecommerce.model;
 
-import java.util.List;
+import jakarta.persistence.*;
 
+import java.util.List;
+@Entity
+@Table(name="app_user")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private List<Product> products;
 
-    public User(int id, String name, List<Product> products) {
+
+    public User(int id, String name) {
         this.id = id;
         this.name = name;
-        this.products = products;
     }
 
     public User() {
@@ -31,10 +35,5 @@ public class User {
         this.name = name;
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
+
 }

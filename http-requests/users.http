@@ -2,7 +2,7 @@
 GET http://localhost:8080/users
 
 ###
-POST https://localhost:8080/users
+POST http://localhost:8080/users
 Content-Type: application/json
 
 {
@@ -14,4 +14,4 @@ Content-Type: application/json
 
 
 ###
-DELETE https://localhost:8080/users/1
+DELETE http://localhost:8080/users/1
