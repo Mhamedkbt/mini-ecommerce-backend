@@ -16,6 +16,17 @@ Content-Type: application/json
   ]
 }
 
+###
+PUT http://localhost:8080/orders/1
+Content-Type: application/json
+
+{
+  "user": { "id": 1 },
+  "products": [
+    { "id": 1 }
+  ]
+}
+
 
 ###
 DELETE http://localhost:8080/orders/3
