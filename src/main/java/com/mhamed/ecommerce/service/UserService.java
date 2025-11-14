@@ -35,4 +35,16 @@ public class UserService {
     public void deleteTheUserById(Integer id) {
          userRepository.deleteById(id);
     }
+
+    public User updateTheUser(int id, User user) {
+        // find product by id
+        User existingUser = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        // update fields
+        existingUser.setName(user.getName());
+
+        // save back
+        return userRepository.save(existingUser);
+    }
 }

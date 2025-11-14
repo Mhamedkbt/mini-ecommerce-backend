@@ -30,4 +30,16 @@ public class OrderService {
     public void deleteTheOrderById(int id) {
         orderRepository.deleteById(id);
     }
+
+    public Order updateTheOrder(int id , Order order) {
+        Order existingOrder = orderRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException(id + " not found"));
+
+        existingOrder.setId(order.getId());
+        existingOrder.setUser(order.getUser());
+        existingOrder.setProducts(order.getProducts());
+
+        return orderRepository.save(existingOrder);
+    }
+
 }

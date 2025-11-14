@@ -36,6 +36,13 @@ public class OrderController {
         orderService.insertOrder(order);
     }
 
+    @PutMapping("{id}")
+    public Order  updateOrder(@PathVariable Integer id, @RequestBody Order order) {
+        return orderService.updateTheOrder(id, order);
+    }
+
+
+
 //    @PostMapping
 //    public Order creteOrder(@RequestBody Order order) {
 //        orders.add(order);

@@ -51,6 +51,11 @@ public class ProductController {
 //        return "❌ Product not found!";
 //    }
 
+    @PutMapping("{id}")
+    public Product updateProduct(@RequestBody Product product, @PathVariable Integer id) {
+        return productService.updateTheProduct(id, product);
+    }
+
     @DeleteMapping("{id}")
     public void deleteProductById(@PathVariable int id) {
         productService.deleteTheProductById(id);

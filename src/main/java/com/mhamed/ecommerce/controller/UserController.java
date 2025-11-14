@@ -34,6 +34,11 @@ public class UserController {
         userService.insertUser(user);
     }
 
+    @PutMapping("{id}")
+    public User updateUser(@PathVariable Integer id, @RequestBody User user) {
+        return userService.updateTheUser(id, user);
+    }
+
 //    @PostMapping
 //    public User addUser(@RequestBody User user) {
 //        users.add(user);
