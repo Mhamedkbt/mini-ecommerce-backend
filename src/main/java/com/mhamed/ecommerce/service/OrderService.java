@@ -19,7 +19,15 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
+    public Order getTheOrderById(Integer id) {
+        return orderRepository.findById(id).orElseThrow(() -> new IllegalStateException(id + " not found"));
+    }
+
     public void insertOrder(Order order) {
         orderRepository.save(order);
+    }
+
+    public void deleteTheOrderById(int id) {
+        orderRepository.deleteById(id);
     }
 }

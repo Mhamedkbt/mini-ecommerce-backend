@@ -24,8 +24,13 @@ public class ProductController {
         return productService.getTheAllProducts();
     }
 
+    @GetMapping("{id}")
+    public Product getProductById(@PathVariable Integer id) {
+        return productService.getTheProductById(id);
+    }
+
     @PostMapping
-    public void addNewProduct(Product product) {
+    public void addNewProduct(@RequestBody Product product) {
         productService.insertProduct(product);
     }
 
@@ -35,17 +40,22 @@ public class ProductController {
 //        return product;
 //    }
 
-    @DeleteMapping("/{id}")
-    public String deleteProduct(@PathVariable Integer id) {
-        for(Product p : products) {
-            if (p.getId() == id) {
-                products.remove(p);
-            }
-            return "✅ Product deleted successfully!";
-        }
-        return "❌ Product not found!";
-    }
+//    @DeleteMapping("/{id}")
+//    public String deleteProduct(@PathVariable Integer id) {
+//        for(Product p : products) {
+//            if (p.getId() == id) {
+//                products.remove(p);
+//            }
+//            return "✅ Product deleted successfully!";
+//        }
+//        return "❌ Product not found!";
+//    }
 
+    @DeleteMapping("{id}")
+    public void deleteProductById(@PathVariable int id) {
+        productService.deleteTheProductById(id);
+
+    }
 
 }
 

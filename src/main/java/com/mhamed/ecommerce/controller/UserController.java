@@ -24,8 +24,13 @@ public class UserController {
         return userService.getTheAllUsers();
     }
 
+    @GetMapping("{id}")
+    public User getUserById(@PathVariable Integer id) {
+        return userService.getTheUserById(id);
+    }
+
     @PostMapping
-    public void addNewUser(User user) {
+    public void addNewUser(@RequestBody User user) {
         userService.insertUser(user);
     }
 
@@ -35,16 +40,21 @@ public class UserController {
 //        return user;
 //    }
 
-    @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable int id) {
-        for (User u : users) {
-            if(u.getId() == id) {
-                users.remove(u);
-                return "✅User deleted successfully!";
-            }
-        }
-        return "❌ User not found!";
-    }
+//    @DeleteMapping("/{id}")
+//    public String deleteUser(@PathVariable int id) {
+//        for (User u : users) {
+//            if(u.getId() == id) {
+//                users.remove(u);
+//                return "✅User deleted successfully!";
+//            }
+//        }
+//        return "❌ User not found!";
+//    }
 
+    @DeleteMapping("{id}")
+    public void deleteUserById(@PathVariable int id) {
+         userService.deleteTheUserById(id);
+
+    }
 
 }

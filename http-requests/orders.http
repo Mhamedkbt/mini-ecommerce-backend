@@ -2,25 +2,19 @@
 GET localhost:8080/orders
 
 ###
+GET localhost:8080/orders/1
+
+
+###
 POST http://localhost:8080/orders
 Content-Type: application/json
 
 {
-  "id": 1,
-  "user": {
-    "id": 1,
-    "name": "Mhamed",
-    "products": []
-  },
+  "user": { "id": 1 },
   "products": [
-    {
-      "id": 1,
-      "name": "Laptop",
-      "price": 1200.0
-    }
+    { "id": 1 }
   ]
 }
-
 
 
 ###

@@ -2,15 +2,16 @@
 GET http://localhost:8080/users
 
 ###
+GET http://localhost:8080/users/1
+
+###
 POST http://localhost:8080/users
 Content-Type: application/json
 
 {
-  "id": 1,
-  "name": "Mhamed"
+  "name": "saad"
 }
 
 
-
 ###
-DELETE http://localhost:8080/users/1
+DELETE http://localhost:8080/users/7

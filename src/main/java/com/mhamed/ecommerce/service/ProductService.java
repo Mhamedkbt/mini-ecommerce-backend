@@ -19,8 +19,16 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public Product getTheProductById(Integer id) {
+        return productRepository.findById(id).orElseThrow(() -> new IllegalStateException(id + " not found"));
+    }
 
     public void insertProduct(Product product) {
         productRepository.save(product);
+    }
+
+
+    public void deleteTheProductById(int id) {
+        productRepository.deleteById(id);
     }
 }
