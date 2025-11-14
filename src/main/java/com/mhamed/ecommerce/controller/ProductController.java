@@ -1,6 +1,7 @@
 package com.mhamed.ecommerce.controller;
 
 import com.mhamed.ecommerce.model.Product;
+import com.mhamed.ecommerce.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -12,12 +13,15 @@ public class ProductController {
 
     List<Product> products = new ArrayList<>();
 
-    public ProductController() {
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping
     public List<Product> getAllProducts() {
-        return products;
+        return productService.getTheAllProducts();
     }
 
     @PostMapping

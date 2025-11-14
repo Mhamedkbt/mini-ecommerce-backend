@@ -1,6 +1,7 @@
 package com.mhamed.ecommerce.controller;
 
 import com.mhamed.ecommerce.model.User;
+import com.mhamed.ecommerce.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -12,12 +13,15 @@ public class UserController {
 
     List<User> users = new ArrayList<>();
 
-    public UserController() {
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping
     public List<User> getAllUsers() {
-        return users;
+        return userService.getTheAllUsers();
     }
 
     @PostMapping

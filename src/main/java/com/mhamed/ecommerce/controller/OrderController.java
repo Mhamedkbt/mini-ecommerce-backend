@@ -1,6 +1,7 @@
 package com.mhamed.ecommerce.controller;
 
 import com.mhamed.ecommerce.model.Order;
+import com.mhamed.ecommerce.service.OrderService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,9 +12,15 @@ import java.util.List;
 public class OrderController {
     List<Order> orders = new ArrayList<>();
 
+    private final OrderService orderService;
+
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
     @GetMapping
     public List<Order> getOrders() {
-        return orders;
+        return orderService.getTheAllOrders();
     }
 
     @PostMapping
@@ -27,7 +34,7 @@ public class OrderController {
         for(Order o : orders) {
             if (o.getId() == id) {
                 orders.remove(o);
-                return "✅Order deleted successfully!";
+                return "✅ Order deleted successfully!";
             }
         }
         return "❌ Order not found!";

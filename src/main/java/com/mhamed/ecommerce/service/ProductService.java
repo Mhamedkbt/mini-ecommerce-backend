@@ -2,9 +2,11 @@ package com.mhamed.ecommerce.service;
 
 import com.mhamed.ecommerce.model.Product;
 import com.mhamed.ecommerce.repository.ProductRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProductService {
 
     private final ProductRepository productRepository;
@@ -13,7 +15,7 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getAllProducts() {
+    public List<Product> getTheAllProducts() {
         return productRepository.findAll();
     }
 
