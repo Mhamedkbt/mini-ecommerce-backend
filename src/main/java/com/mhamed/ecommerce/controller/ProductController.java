@@ -25,10 +25,15 @@ public class ProductController {
     }
 
     @PostMapping
-    public Product addProduct(@RequestBody Product product) {
-        products.add(product);
-        return product;
+    public void addNewProduct(Product product) {
+        productService.insertProduct(product);
     }
+
+//    @PostMapping
+//    public Product addProduct(@RequestBody Product product) {
+//        products.add(product);
+//        return product;
+//    }
 
     @DeleteMapping("/{id}")
     public String deleteProduct(@PathVariable Integer id) {

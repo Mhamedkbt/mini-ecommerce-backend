@@ -25,10 +25,15 @@ public class UserController {
     }
 
     @PostMapping
-    public User addUser(@RequestBody User user) {
-        users.add(user);
-        return user;
+    public void addNewUser(User user) {
+        userService.insertUser(user);
     }
+
+//    @PostMapping
+//    public User addUser(@RequestBody User user) {
+//        users.add(user);
+//        return user;
+//    }
 
     @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable int id) {

@@ -24,10 +24,15 @@ public class OrderController {
     }
 
     @PostMapping
-    public Order creteOrder(@RequestBody Order order) {
-        orders.add(order);
-        return order;
+    public void addNewOrder(Order order) {
+        orderService.insertOrder(order);
     }
+
+//    @PostMapping
+//    public Order creteOrder(@RequestBody Order order) {
+//        orders.add(order);
+//        return order;
+//    }
 
     @DeleteMapping("/{id}")
     public String deleteOrder(@PathVariable int id) {

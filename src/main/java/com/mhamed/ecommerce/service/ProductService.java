@@ -20,4 +20,7 @@ public class ProductService {
     }
 
 
+    public void insertProduct(Product product) {
+        productRepository.save(product);
+    }
 }

@@ -19,5 +19,7 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
-
+    public void insertOrder(Order order) {
+        orderRepository.save(order);
+    }
 }
